@@ -1,0 +1,36 @@
+/* Компоненты */
+@import '../vendor/UnCss';/* т.к. он сбрасывает все стили */
+
+/* Шрифты */
+
+/* идут перед миксинами, т.к. шрифты могут быть использованны в миксинах */
+@import '../fonts/allFonts';
+
+/* самодельные стили */
+@import 'variables';
+@import 'mixins';
+@import 'colors';
+@import 'global';
+
+@import '../blocks/main-screen/main-screen';
+@import '../blocks/header/header';
+@import '../blocks/logotype/logotype';
+@import '../blocks/button/button';
+@import '../blocks/contacts/contacts';
+@import '../blocks/block-head/block-head';
+@import '../blocks/hosting-prices/hosting-prices';
+@import '../blocks/CMS-support/CMS-support';
+@import '../blocks/ssl-cert/ssl-cert';
+@import '../blocks/domain-names/domain-names';
+@import '../blocks/domains-and-servers-container/domains-and-servers-container';
+@import '../blocks/servers/servers';
+@import '../blocks/text-container/text-container';
+@import '../blocks/advantages-list/advantages-list';
+@import '../blocks/benefits/benefits';
+@import '../blocks/questions-and-answers/questions-and-answers';
+@import '../blocks/ways-to-pay/ways-to-pay';
+@import '../blocks/proposal-card/proposal-card';
+@import '../blocks/footer/footer';
+@import '../blocks/socials/socials';
+@import '../blocks/reviews-section/reviews-section';
+@import '../blocks/faq-section/faq-section';

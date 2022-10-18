@@ -1,0 +1,513 @@
+include ../../blocks/favicon/favicon.pug
+include ../../blocks/main-screen/main-screen.pug
+include ../../blocks/header/header.pug
+include ../../blocks/hosting-prices/hosting-prices.pug
+include ../../blocks/CMS-support/CMS-support.pug
+include ../../blocks/ssl-cert/ssl-cert.pug
+include ../../blocks/domains-and-servers-container/domains-and-servers-container.pug
+include ../../blocks/benefits/benefits.pug
+include ../../blocks/reviews-section/reviews-section.pug
+include ../../blocks/faq-section/faq-section.pug
+include ../../blocks/ways-to-pay/ways-to-pay.pug
+include ../../blocks/footer/footer.pug
+
+doctype html
+html(lang="ru")
+  head
+    meta(charset = "utf-8")
+    meta(name="viewport", content="initial-scale=1.0, width=device-width")
+    title Дом Сайтов
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    +favicon()
+  body
+    +header({
+      buttonText: " Купить хостинг",
+      contacts:[
+        {
+          link:"tel:+74951234556",
+          pic: 'phone',
+          text: "+7 (495) 123-45-56",
+        },
+        {
+          link: "mailto:support@wshost.ru",
+          pic: 'mail',
+          text: "support@wshost.ru",
+          substr: ["(поддержка ","24/7",")"],
+        },
+      ],
+      services:[
+        {text:"хостинг"},
+        {text:"VPS"},
+        {text:"регистрация доменов"},
+        {text:"SSL"},
+        {
+          text: `хостинг-провайдер`,
+          subItems: [
+            {text: "subItem 1"},
+            {text: "subItem 2"},
+            {text: "subItem 3"},
+          ]
+        }
+      ]
+    })
+    main
+      +main-screen({
+        blockHead:{
+          headTag : "h1",
+          text: "Платный хостинг для сайта",
+        },
+        advantages: [
+          {
+            text:"Совместим с любыми CMS:", 
+            description:"1С-Битрикс, Wordpress, Opencart, DLE, Joomla и др.",
+          },
+          {
+            text: "Всё включено:",
+            description: "PHP 5.4 – 8.0, Perl, FTP, MySQL, ISPManager",
+          }
+        ],
+        labelText: "Всего от ",
+        labelHighlightedText: "99 ₽ в месяц!",
+        buttonText: "Заказать хостинг",
+      })
+      +hosting-prices({
+        blockHead: {
+          text: "Тарифы на хостинг", 
+          description: [
+            ["У нас оптимальные тарифы на классический виртуальный хостинг с безлимитными ресурсами на количество сайтов, баз данных и FTP."],
+            ["Выбирайте наш лучший ","безлимитный", " хостинг в России!"]
+          ],
+        },
+        columns: [
+                    {
+                      columnHeadPicModifier: "",
+                      columnHeadPic:"baloon",
+                      columnHeadText: "мини",
+                      advantages: [
+                        {
+                          modifier:"hosting-prices__advantage_theme_main", 
+                          text: "2Gb места SSD ",
+                        },
+                        {text: "PHP - 5.6, 7.0, 7.1, 7.2, 7.3, 7.4"},
+                        {text: "Поддержка любой CMS"},
+                        {text: "Бесплатные SSL сертификаты Let's Encrypt"},
+                        {text: "Защита от DDoS"},
+                      ],
+                      price: {price: "99 ₽", period: "в месяц"},
+                      oldPrice: {price: "117 ₽", period:"в месяц"},
+                      buttonText: "Купить хостинг",
+                    },
+                    {
+                      columnHeadPicModifier: "",
+                      columnHeadPic:"telegram",
+                      columnHeadText: "старт",
+                      advantages: [
+                        {
+                          modifier:"hosting-prices__advantage_theme_main", 
+                          text: "7Gb места SSD ",
+                        },
+                        {text: "PHP - 5.6, 7.0, 7.1, 7.2, 7.3, 7.4"},
+                        {text: "Поддержка любой CMS"},
+                        {text: "Бесплатные SSL сертификаты Let's Encrypt"},
+                        {text: "Защита от DDoS"},
+                        {text: "Повышенная производительность"},
+                        {text: "Домен в подарок"},
+                      ],
+                      price: {price: "149 ₽", period: "в месяц"},
+                      oldPrice: {price: "117 ₽", period:"в месяц"},
+                      buttonText: "Купить хостинг",
+                    },
+                    {
+                      columnHeadPicModifier: "",
+                      columnHeadPic:"helicopter",
+                      columnHeadText: "стандарт",
+                      advantages: [
+                        {
+                          modifier:"hosting-prices__advantage_theme_main", 
+                          text: "30Gb места SSD ",
+                        },
+                        {text: "PHP - 5.6, 7.0, 7.1, 7.2, 7.3, 7.4"},
+                        {text: "Поддержка любой CMS"},
+                        {text: "Бесплатные SSL сертификаты Let's Encrypt"},
+                        {text: "Защита от DDoS"},
+                        {text: "Повышенная производительность"},
+                        {text: "Домен в подарок"},
+                      ],
+                      price: {price: "290 ₽", period: "в месяц"},
+                      oldPrice: {price: "117 ₽", period:"в месяц"},
+                      buttonText: "Купить хостинг",
+                    },
+                    {
+                      columnHeadPicModifier: "",
+                      columnHeadPic:"rocket",
+                      columnHeadText: "бизнес",
+                      advantages: [
+                        {
+                          modifier:"hosting-prices__advantage_theme_main", 
+                          text: "50Gb места SSD ",
+                        },
+                        {text: "PHP - 5.6, 7.0, 7.1, 7.2, 7.3, 7.4"},
+                        {text: "Поддержка любой CMS"},
+                        {text: "Бесплатные SSL сертификаты Let's Encrypt"},
+                        {text: "Защита от DDoS"},
+                        {text: "Повышенная производительность"},
+                        {text: "Домен в подарок"},
+                      ],
+                      price: {price: "470 ₽", period: "в месяц"},
+                      oldPrice: {price: "117 ₽", period:"в месяц"},
+                      buttonText: "Купить хостинг",
+                    },
+                  ],
+        gridLabel:"Неограниченно сайтов, баз данных MySQL, FTP аккаунтов и почтовых ящиков",
+        link:{href:"#!",text: "Посмотреть все характеристики нашего хостинга"},
+        proposalsTitle: "Вместе с хостингом Вы получите",
+        advantagesList: {
+          advantages: [
+            {text:"30 дней на тестовый период + 100% возврат денег, если хостинг не подойдёт"},
+            {text:"Хостинг в подарок при оплате тарифа на 1 год"},
+            {text:"Бесплатный перенос сайта от другого хостинг-провайдера"},
+          ]
+        },
+      })
+      +CMS-support({
+        blockHead: {
+          text: "Хостинг с поддержкой любой CMS",
+          description: [
+            ["На нашем виртуальном хостинге вы сможете разместить сайт на ", "любой CMS", ",<br/>а также установить в два клика любую популярную систему управлению сайтом"]
+          ],
+        },
+        logos:[
+          {logoLink: require('../../img/partners-logos/1c.webp'), logoAlt:"1c"},
+          {logoLink: require('../../img/partners-logos/WordPress.webp') ,logoAlt:"WordPress"},
+          {logoLink: require('../../img/partners-logos/Joomla.webp') ,logoAlt:"Joomla"},
+          {logoLink: require('../../img/partners-logos/MODX.webp') ,logoAlt:"MODX"},
+          {logoLink: require('../../img/partners-logos/opencart.webp') ,logoAlt:"opencart"},
+          {logoLink: require('../../img/partners-logos/umiCMS.webp') ,logoAlt:"umiCMS"},
+          {logoLink: require('../../img/partners-logos/drupal.webp') ,logoAlt:"drupal"},
+          {logoLink: require('../../img/partners-logos/instantCMS.webp') ,logoAlt:"instantCMS"},
+          {logoLink: require('../../img/partners-logos/netcat.webp') ,logoAlt:"netcat"},
+          {logoLink: require('../../img/partners-logos/phpBB.webp') ,logoAlt:"phpBB"},
+          {logoLink: require('../../img/partners-logos/shopscript.webp') ,logoAlt:"shopscript"},
+          {logoLink: require('../../img/partners-logos/DLE.webp') ,logoAlt:"DLE"},
+          {logoLink: require('../../img/partners-logos/hostcms.webp') ,logoAlt:"hostcms"},
+          {logoLink: require('../../img/partners-logos/prestashop.webp') ,logoAlt:"prestashop"},
+        ],
+      })
+      +ssl-cert({
+        blockHead: {
+          text: "SSL-сертификаты",
+          description: [
+            ["Купить SSL и попасть в TOP Google. WSHOST предлагает низкие цены и быстрый выпуск за счет ", "уникальных", " партнерских условий с удостоверяющими центрами."],
+            ["Подберите сертификат исходя из задач и предпочтений, удобные фильтры и описание помогут определиться"]
+          ],
+        },
+        sslTypes: [
+          {
+            modifier: "", 
+            sslType:{
+              title:"SSL для сайта<br/>Comodo PositiveSSL",
+              advantages: [
+                {advantage: "Доступен физическим лицам"},
+                {advantage: "Защита 1го домена"},
+                {advantage: "Поддержка IDN доменов"},
+                {advantage: "Низкая степень доверия"},
+                {advantage: "Совместимость с браузерами: 96%"},
+                {advantage: "Автоустановка на наш хостинг"},
+              ],
+              price:{price:"900 ₽", period: "/ год"}
+            },
+          },
+          {
+            modifier: "", 
+            sslType:{
+              title:"SSL для магазина<br/>Positive SSL MDC<br/>(3 domains)",
+              advantages: [
+                {advantage: "Доступен физическим лицам"},
+                {advantage: "Защита 3х доменов"},
+                {advantage: "Опция добавления доменов"},
+                {advantage: "Поддержка IDN доменов"},
+                {advantage: "Достаточная степень доверия"},
+                {advantage: "Совместимость с браузерами: 99.8%"},
+                {advantage: "Автоустановка на наш хостинг"},
+              ],
+              price:{price:"3800 ₽", period: "/ год"}
+            },
+          },
+          {
+            modifier: "", 
+            sslType:{
+              title:"С защитой поддоменов<br/>Essential SSL Wildcard",
+              advantages: [
+                {advantage: "Доступен физическим лицам"},
+                {advantage: "Защита всех поддоменов"},
+                {advantage: "Поддержка IDN доменов"},
+                {advantage: "Достаточная степень доверия"},
+                {advantage: "Совместимость с браузерами: 99.8%"},
+                {advantage: "Автоустановка на наш хостинг"},
+              ],
+              price:{price:"6700 ₽", period: "/ год"}
+            },
+          },
+          {
+            modifier: "", 
+            sslType:{
+              title:"С зеленой строкой<br/>True BusinessID with EV",
+              advantages: [
+                {advantage: "Только для юридических лиц"},
+                {advantage: "Защита одного домена"},
+                {advantage: "Зеленая адресная строка"},
+                {advantage: "Наивысшая степень доверия"},
+                {advantage: "Без поддержки IDN"},
+                {advantage: "Совместимость с браузерами: 99.9%"},
+                {advantage: "Автоустановка на наш хостинг"},
+              ],
+              price:{price:"12600 ₽", period: "/ год"}
+            },
+          },
+        ],
+        buttonText: "Заказать SSL сертификат",
+      })
+      +domains-and-servers-container({
+        domainNames:{
+          blockHead:{text:"Доменные имена",},
+          textContainer:{
+            texts:[
+              "Правильное название сайта — залог трафика и успешной рекламы.  Домен должен ассоциироваться у пользователя с конкретными услугами или отраслью. ",
+              "Часто говорят: «Посмотри на auto.ru» и становится понятно, что речь про ресурс, который связан с автомобилями. Точно так же и с другими сайтами, в имени которых заложен смысл их деятельности. ",
+              "Помимо основных, выделяют специальные - тематические зоны: .travel, .site, .pro и т.д.",
+            ],
+            buttonText: "Подобрать и зарегистрировать домен"
+          },
+          domainNames: [
+            {name:".ru",price:"600 ₽",period:"в год",},
+            {name:".рф",price:"600 ₽",period:"в год",},
+            {name:".su",price:"900 ₽",period:"в год",},
+            {name:".com",price:"1200 ₽",period:"в год",},
+            {name:".net",price:"1200 ₽",period:"в год",},
+            {name:".org",price:"1200 ₽",period:"в год",},
+            {name:".biz",price:"1200 ₽",period:"в год",},
+            {name:".info",price:"1200 ₽",period:"в год",},
+            {name:".moscow",price:"500 ₽",period:"в год",},
+            {name:".msc.ru",price:"500 ₽",period:"в год",},
+          ],
+        },
+        servers:{
+          blockHead: {text:"Хостинг VPS/VDS серверов"},
+          textContainer:{texts: [
+              "Готовые тарифы VPS сбалансированы по производительности. Индивидуальная конфигурация позволит получить оптимальное количество ресурсов с оплатой за час.", 
+              "Все тарифы VPS хостинга построены на оборудовании Xeon Scalable Silver/Gold. ",
+              "Серверы размещены в DDoS-защищенном кластере ЦОД Tier lll и подключены к точке обмена трафиком Cloud-IX."
+            ], 
+          },
+          titleKVM:"Цены на VPS KVM",
+          textKVM: "На каждом VPS сервере для вас уже включено:",
+          advantagesList:{
+            advantages:[
+              {text: "Root-доступ",},
+              {text: "Защиты от DDoS",},
+              {text: "Домен в подарок при оплате за 1 год",},
+            ],
+          },
+          cells:[
+            {modifier:"servers__table-cell_theme_column-head",text:" "},
+            {modifier:"servers__table-cell_theme_column-head",text:"Start VPS"},
+            {modifier:"servers__table-cell_theme_column-head",text:"Optima VPS"},
+            {modifier:"servers__table-cell_theme_column-head",text:"Drive VPS"},
+            {modifier:"servers__table-cell_theme_dark-blue",text:"CPU"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"1"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"2"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"3"},
+            {modifier:"servers__table-cell_theme_blue",text:"RAM"},
+            {modifier:"servers__table-cell_left-divider",text:"1"},
+            {modifier:"servers__table-cell_left-divider",text:"2"},
+            {modifier:"servers__table-cell_left-divider",text:"4"},
+            {modifier:"servers__table-cell_theme_dark-blue",text:"HDD"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"20 GB"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"40 GB"},
+            {modifier:"servers__table-cell_theme_light-blue servers__table-cell_left-divider",text:"60 GB"},
+            {modifier:"servers__table-cell_theme_blue",text:"₽ в месяц"},
+            {modifier:"servers__table-cell_left-divider",text:"350"},
+            {modifier:"servers__table-cell_left-divider",text:"450"},
+            {modifier:"servers__table-cell_left-divider",text:"950"},
+            {modifier:"servers__table-cell_theme_blue",text:" "},
+            {modifier:"servers__table-cell_left-divider",buttonText: "Заказать VPS"},
+            {modifier:"servers__table-cell_left-divider",buttonText: "Заказать VPS"},
+            {modifier:"servers__table-cell_left-divider",buttonText: "Заказать VPS"},
+          ],
+        }
+      })
+      +benefits({
+        blockHead:{
+          text: "Выгоды нашего хостинга для Вас",
+        },
+        benefits:[
+          {
+            modificator:"benefits__benefit_with-right-divider",
+            pic: "lowPrices",
+            title:"Низкие цены",
+            text:"Доступные цены всегда были приоритетом нашей компании. Партнерская программа поможет сэкономить ещё больше.",
+          },
+          {
+            modificator:"benefits__benefit_with-right-divider",
+            pic: "case",
+            title:"Грамотная поддержка",
+            text:"Сотрудники с многолетним опытом в сфере хостинг услуг всегда оперативно помогут решить возникшие у клиентов трудности.",
+          },
+          {
+            modificator:"",
+            pic: "lock",
+            title:"Безопасность",
+            text:"Фильтрация паразитического трафика, защита от брут-форс атак помогут обеспечить сохранность данных клиентов.",
+          },
+        ],
+      })
+      +reviews-section({
+        title:"Отзывы о нашем хостинге",
+        texts: [
+          {text:"Хостинг – наша работа! Более 10 лет мы размещаем сайты своих клиентов на надёжном и современном оборудовании."},
+        {text:"Почитайте, что говорят наши клиенты"}
+        ],
+        reviewCards: [
+          {
+            text: "«Пользуюсь хостингом уже около 8 лет. Хорошая цена и удобно что CPanel для управления. Поддержка помогает хорошо.»",
+            pic: "blonde",
+            caption: "Петровна Мария Ивановна"
+          },
+          {
+            text: "«вторая карточка",
+            pic: "blonde",
+            caption: "Петровна Ивановна"
+          },
+          {
+            text: "третья карточка",
+            pic: "blonde",
+            caption: "Мария Ивановна"
+          },
+        ],
+      })
+      +faq-section({
+        blockHead:{
+          text: "Вопросы и ответы",
+          description: [
+            ["Здесь представлены самые популярные вопросы, которые задают нам клиенты перед оформлением заказа на виртуальный хостинг. Если вы не нашли ответ на имеющиеся у вас вопрос, задайте его нашим специалистам."],
+          ],
+        },
+        accordeons:[
+          {
+            title: "Как выбрать SSL-сертификат?",
+            text: "контент аккордиона",
+          },
+          {
+            title: "Что такое SSL-сертификат?",
+            text: "Это криптографический протокол для организации защищенного соединения с вашим сайтом. Такие протоколы необходимы всем сайтам, на которых происходит сбор любых данных и сведений, есть формы обратной связи или другие формы для заполнения, сайтам с высоким уровнем доверия (банки, новостные ресурсы, интернет-магазины, форумы и т.д.). При отсутствии HTTPS-соединения, любой браузер перед переадресацией на сайт известит пользователя, о том, что соединение не безопасно. Это значительно снижает конверсию сайта и приводит к потере посетителей",
+          },
+          {
+            title: "Есть ли бесплатные SSL-сертификаты?",
+            text: "контент аккордиона",
+          },
+          {
+            title: "Немного о нас и наших услугах",
+            text: "контент аккордиона",
+          },
+          {
+            title: "Как правильно выбрать тариф?",
+            text: "контент аккордиона",
+          },
+        ],
+      })
+      +ways-to-pay({
+        proposalCard: {
+          texts: [
+            {
+              modificator: "", 
+              text: ["Получите ","30 дней"," на тестирование нашего хостинга ","бесплатно"],
+            },
+            {
+              modificator: "proposal-card__text_width_medium", 
+              text: [" Плюс, ","100% гарантия возврата"," всех оплаченных денежных средств в этот период."],
+            },
+          ],
+          buttonText: "Попробовать хостинг",
+        },
+        blockHead: {
+          text: "Способы оплаты",
+          description: [
+           ["Оплачивайте услуги виртуального хостинга WSHOST любым, удобным для вас методом. Наш хостинг также могут заказать и оплатить юридические лица безналичным переводом"],
+          ],
+        },
+        paySystems: [
+          {modifier: "",href: "#!", pic: "webMoney",},
+          {modifier: "",href: "#!", pic: "ioMoney",},
+          {modifier: "",href: "#!", pic: "visa",},
+          {modifier: "",href: "#!", pic: "masterCard",},
+          {modifier: "",href: "#!", pic: "mir",},
+          {modifier: "",href: "#!", pic: "qiwi",},
+          {modifier: "",href: "#!", pic: "payPal",},
+          {modifier: "",href: "#!", pic: "sberBank",},
+        ],
+      })
+      +footer({
+        text:"WSHOST даёт возможность купить хостинг сайтов дешево с SSL и полноценным пакетом услуг. Дешевая регистрация доменов и недорогой хостинг позволяют создать сайт любой тематики. Мы занимаем лидирующие позиции в даной сфере. Нашими клиентами являются жители городов Москва, Санкт-Петербург и т.д. Выбирая наш php хостинг вы получаете премиум услуги по низкой цене.",
+        contacts: [
+          {
+            link: "#!",
+            pic: 'phone',
+            description: "Телефон в Москве:",
+            text: '+7 (495) 123-45-56',
+          },
+          {
+            link: "#!",
+            pic: 'mail',
+            description: "Электронная почта",
+            text: 'support@wshost.ru',
+          },
+          {
+            link: "#!",
+            pic: 'location',
+            description: "Адрес дата-ценра и офиса продаж",
+            text: 'г. Москва,  Варшавское шоссе, д. 125',
+            substr:['','Tехническая поддержка работает 24/7'],
+          },
+        ],
+        socials:[
+          {pic: "tweeter"},
+          {pic: "instagram"},
+          {pic: "vk"},
+          {pic: "facebook"},
+        ],
+        buttonText: "Report Spam",
+        infoColumns:[
+          {
+            columnHead: "О компании",
+            infoItems: [
+              {itemText: "О хостинг-провайдере",itemHref: "#!",},
+              {itemText: "Партнёрская программа",itemHref: "#!",},
+              {itemText: "Дата-центр",itemHref: "#!",},
+              {itemText: "Документы для клиентов",itemHref: "#!",},
+              {itemText: "Договор на услуги хостинга",itemHref: "#!",},
+              {itemText: "Способы оплаты",itemHref: "#!",},
+              {itemText: "Цены",itemHref: "#!",},
+              {itemText: "Акции",itemHref: "#!",},
+              {itemText: "Новости",itemHref: "#!",},
+              {itemText: "Вакансии",itemHref: "#!",},
+              {itemText: "Контакты",itemHref: "#!",},
+            ],
+          },
+          {
+            modificator: "footer__info-column_extra-items-gap",
+            columnHead: "Наши услуги",
+            infoItems: [
+              {itemText: "Виртуальный хостинг",itemHref: "#!",},
+              {itemText: "Хостинг для 1С-Битрикс",itemHref: "#!",},
+              {itemText: "Хостинг для Wordpress",itemHref: "#!",},
+              {itemText: "Аренда VPS",itemHref: "#!",},
+              {itemText: "Регистрация доменов",itemHref: "#!",},
+              {itemText: "SSL сертификаты",itemHref: "#!",},
+              {itemText: "Конструктор сайтов",itemHref: "#!",},
+            ],
+          },
+        ],
+        copyrights: '© 2007-2021 ООО "Вебсайт хостинг". Все права защищены.',
+        politicsName: "Политика конфиденциальности", 
+        politicsHref: "#!",
+      })

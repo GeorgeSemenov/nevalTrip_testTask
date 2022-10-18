@@ -7,8 +7,8 @@ figure.Event{
 }
 
 {
-  picHRef:require("href"),
-  picAlt : "",
-  title: "",
-  labels: [{text:"",modificator:"top/middle/bottom"}]
+  picHRef= {require("href")}
+  picAlt = ""
+  title  = ""
+  labels = {[{text:"",modificator:"top/middle/bottom"}]}
 }

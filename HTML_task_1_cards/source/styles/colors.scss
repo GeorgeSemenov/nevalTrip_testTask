@@ -1,0 +1,134 @@
+/* no sense variables */
+$transparent: transparent;
+$inherit: inherit;
+
+$white: #fff;//Не удалять, используется в global.css
+$black: #262626;//Не удалять, используется в global.css
+
+$blue: #67A8D2;//голубенький, как на аватаре.
+$blue-lightest: #dbe8f0;
+$blue-lighter: #c4dbea;
+$blue-dark: #3E708F;
+$blue-darker: #1B567C;
+$orange: #FA6232;
+$orange72: #FE8572;
+$gray-lightest: rgba(103, 168, 210, 0.1);
+$gray-lighter: rgba(103, 168, 210, 0.3);
+$gray-light: #E5E5E5;
+$gray: #3C3B3B;
+$gray-darker: #858585;
+
+
+/* variables with sense */
+
+/* *********************************************************************** */
+$page--BGColor: #F8F8F8;
+$header--Color: $white;
+$header--BGColor: $inherit;
+$header__service-href--Color: $black;
+$header__service-href-hover--Color : lighten($header__service-href--Color,30%);
+$header__service-href-active--Color : lighten($header__service-href--Color,50%);
+$header__service-submenu--BGColor: $white;
+$header__sandwich-ico--BGColor: $orange;
+$header__sandwich-ico-after-before--BGColor : $header__sandwich-ico--BGColor;
+$header__top-content--BGColor: $black;
+$header__bottom-content--BGColor: $white;
+
+$header__service-href_dropdown-after--Color: $black;
+$header__service-href_dropdown-after-hover--Color: red;
+$header__service-subitem-href--Color: $black;
+$header__service-subitem-href-hover--Color: green;
+$header__avatar--Fill: $blue;//цвет фона аватара.
+$header__avatar-hover--Fill: darken($header__avatar--Fill, 20%);//цвет фона аватара при наведении.
+
+$contacts--Color: $white;
+$contacts_theme_footer__description--Color: $gray-darker;
+
+$button--BGColor: $blue;
+$button-hover--BGColor: darken($button--BGColor, 15%);
+$button-active--BGColor: darken($button--BGColor, 30%);
+$button--Color: $white;
+$button_theme_orange--BGColor: $orange;
+$button_theme_dark-blue--BGColor: $blue;
+$button_theme_dark-blue--Color: $white;
+
+$block-head--Color: $gray;
+$block-head_theme_main__head--Color: $white;
+$block-head_theme_main__head-shadow--Color: $blue-dark;
+
+$main-screen--BGColor: linear-gradient(91.05deg, #5994BA 14.15%, #ADCCE0 99%);
+$main-screen--Color: $white;//отвечает за все цвета в этом блоке
+$main-screen__advantages--Color: $main-screen--Color;
+$main-screen__label--BGColor:$blue-darker;
+$main-screen__label--BShadow: $orange72;
+
+$hosting-prices--BGColor: $gray-light;
+$hosting-prices--Color: $gray;
+$hosting-prices__column-head--BGColor: $white;
+$hosting-prices__column-body--BGColor: $hosting-prices__column-head--BGColor;
+$hosting-prices__column-head-text--Color: $blue-darker;
+$hosting-prices__advantage--Color: $gray-darker;
+$hosting-prices__advantage_theme_main--Color: $black;
+$hosting-prices__price-container: $blue-darker;
+$hosting-prices__price_theme_old: $gray;
+$hosting-prices__link--Color: $orange;
+$hosting-prices__proposals-title--Color: $gray;
+
+$CMS-support--BGColor-top-left: $blue-lightest;
+$CMS-support--BGColor-bottom-right: $blue-lighter;
+
+$ssl-cert__ssl-title--Color: $blue-darker;
+$ssl-cert__ssl-type--BGColor: $gray-lightest;
+$ssl-cert__ssl-type--BColor: $gray-lighter;
+$ssl-cert__title-container-after--BGColor: $blue-darker;
+$ssl-cert__ssl-type-before--Color: $blue;
+$ssl-cert__ssl-advantages--Color: $gray;
+$ssl-cert__ssl-price--Color: $blue-darker;
+
+$text-container--Color: $gray;
+
+$advantages-list--Color: $blue-darker;
+
+$domain-names__name--BGColor: $white;
+$domain-names__domain-abbr--Color: $blue-darker;
+$domain-names__domain-abbr--BGImage: linear-gradient(90deg, #7CB4D8 0%, rgba(191, 230, 255, 0) 100%);
+
+$servers__price-title--Color: $gray;
+$servers__kvm-text--Color: $gray;
+$servers__table--Color: $gray;
+$servers__table-cell_theme_dark-blue--BGColor: $blue-darker;
+$servers__table-cell_theme_dark-blue--Color: $white;
+$servers__table-cell_theme_light-blue--BGColor: rgba(103, 168, 210, 0.2);
+$servers__table-cell_theme_blue--BGColor: rgba(27, 86, 124, 0.8);
+$servers__table-cell_theme_blue--Color: $white;
+$servers__table-cell_left-divider--BGColor: $blue;
+
+$benefits--BGColor: rgba(103, 168, 210, 0.2);
+$benefits__benefit-title--Color: $gray;
+$benefits__benefit-text--Color: $gray-darker;
+$benefits__benefit_with-right-divider--BGColor: rgba(103, 168, 210, 0.3);
+
+$reviews-section--Color : $gray;
+$reviews-section__review-card: $white;
+$reviews-section__caption--Color: $gray-darker;
+$swiper-pagination-bullet--BGColor: $blue;
+$swiper-pagination-bullet-active--BGColor: $blue;
+
+$faq-section--Color: $gray;
+$faq-section__accordeon--BGColor: $white;
+$faq-section__accordeon-title--Color: $blue-darker;
+$faq-section__accordeon-toggle-symbol-after-before--BGColor: $blue-darker;
+$faq-section__accordeon-toggle-symbol-after-before-hover--BGColor: lighten($orange, 15%);
+$faq-section__accordeon-toggle-symbol_opened-after-before--BGColor: $orange;
+
+$proposal-card--BGColor: $blue-darker;
+$proposal-card__text--Color: $white;
+$proposal-card__text-highlighted--Color: $orange;
+
+$ways-to-pay__pay-system-before--BGColor: $blue;
+
+$footer--Color: $gray-darker;
+$footer--BGColor: $black;
+$footer__info-column-head--Color: $gray-darker;
+$footer__info-items--Color: $white;
+$footer__bottom-field--BColor: rgba(133,133,133,0.2);

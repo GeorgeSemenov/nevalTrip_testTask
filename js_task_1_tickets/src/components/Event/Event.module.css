@@ -1,0 +1,29 @@
+.Event{
+  position: relative;
+  max-width: 250px;
+  height: 368px;
+  cursor: pointer;
+}
+
+.active{
+  border: 10px solid red;
+}
+
+.EventPic{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.EventListLabels{
+  text-align: left;
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+}
+
+.EventLabel{
+  font-size: 10px;
+}

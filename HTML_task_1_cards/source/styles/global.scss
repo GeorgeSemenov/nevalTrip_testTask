@@ -1,0 +1,28 @@
+html{
+  background-color: $white;
+  color: $black;
+  font-family: 'SF Pro Display' ,Arial , Sans-serif;
+  font-size: 10px;
+  @media (max-width: $md - 1px){
+    font-size: 8px;
+  }
+}
+body{
+  margin:0;
+}
+main{
+}
+
+body{
+  .content-container{
+    max-width: 1207px;
+    @include mx(auto);
+    @include px(15px);
+    box-sizing: border-box;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $inherit;
+}
