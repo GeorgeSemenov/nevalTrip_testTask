@@ -1,5 +1,5 @@
 figure.Event{
-  img.EventPic<picRef>
+  img.EventPic<picHRef, picAlt>
   figcaption.EventTitle<title>
   ul.EventLabels[labels]{
     li.EventLabel<text,modificator>
@@ -7,7 +7,8 @@ figure.Event{
 }
 
 {
-  picRef:"",
+  picHRef:require("href"),
+  picAlt : "",
   title: "",
   labels: [{text:"",modificator:"top/middle/bottom"}]
 }
