@@ -19,6 +19,8 @@ function Event({isActive,picHRef, picAlt, title,
       case 'benefits':
         text="Доступны льготные билеты";
         break;
+      default :
+        text = `${type} tickets`;
     } 
     return{id:index, text: text}
   })

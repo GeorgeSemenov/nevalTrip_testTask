@@ -1,0 +1,15 @@
+.ControlPanel{
+  padding-top: 1px;
+  padding-bottom: 30px;
+  background-color: FloralWhite;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.Counter{
+  margin-right: 10px;
+}
+
+.Counter:last-child{
+  margin-right: 0 ;
+}

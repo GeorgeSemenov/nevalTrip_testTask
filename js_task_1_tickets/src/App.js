@@ -8,11 +8,11 @@ import BDViewer from './components/BDViewer/BDViewer.jsx'
 
 function App() {
   const [events,setEvents] = useState(eventsData)
-
+  const [BD,setBD] = useState([])
   return (
-    <div className="App">
+    <div className="App" style={{padding: "0px 15px 350px"}}>
       <h1>Выберете событие</h1>
-      <div style={{display: "flex", flexWrap: "wrap", justifyContent:"center"}}>
+      <div style={{display: "flex", flexWrap: "wrap", justifyContent:"center", marginBottom: "35px"}}>
         {events.map((event,index)=>
           <Event
             key              = {event.id}
@@ -32,8 +32,17 @@ function App() {
           />      
         )}
       </div>
-      <h2>Выберете количество билетов и их тип</h2>
-      <ControlPanel/>
+      {
+        events.find(event=>event.isActive) &&
+          <ControlPanel
+            activeEvent = {events.find(event=>event.isActive)}
+          />
+      }
+      {
+        BD.length
+          ? <BDViewer/>
+          : ''
+      }
     </div>
   );
 }
