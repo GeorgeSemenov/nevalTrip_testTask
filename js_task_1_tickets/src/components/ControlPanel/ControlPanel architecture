@@ -4,12 +4,7 @@ div.controlPannel{(дата события, цена для
   и суммарное значение стоимостей )
   h1.CPTitle<title>
   div.CPCounters[counters]{
-    div.Counter{
-      span.CounterTitle<title>
-      div.CounterBtn<incrementSymbol="+">
-      input.CounterResult<defaultValue=0>
-      div.CounterBtn<decrementSymbol="-">
-    }
+    Counter
   }
   .CPCheckboxContainer{
     input.CPCheckbox

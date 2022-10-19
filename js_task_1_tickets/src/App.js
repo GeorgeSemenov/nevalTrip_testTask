@@ -1,62 +1,39 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import eventsData from './data/eventsData.js'
 import Event from './components/Event/Event.jsx'
+import ControlPanel from './components/ControlPanel/ControlPanel.jsx'
+import BDViewer from './components/BDViewer/BDViewer.jsx'
 
 function App() {
-  const [events,setEvents] = useState([
-    {
-      picHRef: require("./img/scaryMovie.jpg"),  
-      picAlt : "Кино",
-      title: "Поход в кино",
-      labels: [
-        {text:"Доступны груповые билеты", id:1},
-        {text:"Доступны взрослые билеты", id:2},
-      ]
-    },
-    {
-      picHRef: require("./img/aquapark.jpeg"),  
-      picAlt : "Аквапарк",
-      title: "Поход в аквапарк",
-      labels: [
-        {text:"Доступны взрослые билеты", id:1},
-        {text:"Доступны детские билеты", id:2},
-        {text:"Доступны льготные билеты", id:3},
-      ]
-    },
-    {
-      picHRef: require("./img/safari.jpg"),  
-      picAlt : "Сафари",
-      title: "Поездка по сафари туру",
-      labels: [
-        {text:"Доступны взрослые билеты", id:1},
-        {text:"Доступны льготные билеты", id:2},
-      ]
-    },
-    {
-      picHRef: require("./img/zoo.jpg"),  
-      picAlt : "Зопарк",
-      title: "Поход в зоопарк",
-      labels: [
-        {text:"Доступны детские билеты", id:1},
-        {text:"Доступны взрослые билеты", id:2},
-      ]
-    },
-  ])
+  const [events,setEvents] = useState(eventsData)
 
   return (
     <div className="App">
+      <h1>Выберете событие</h1>
       <div style={{display: "flex", flexWrap: "wrap", justifyContent:"center"}}>
-        {events.map(event=>
+        {events.map((event,index)=>
           <Event
-            picHRef= {event.picHRef}
-            picAlt = {event.picAlt}
-            title  = {event.title}
-            labels = {event.labels}
-            onClick = {(e)=>(e.target.className+=" active")}
+            key              = {event.id}
+            picHRef          = {event.picHRef}
+            picAlt           = {event.picAlt}
+            title            = {event.title}
+            typesOfTickets   = {event.typesOfTickets}
+            isActive         = {event.isActive}
+
+            onClick   = {()=>{
+              //всё переделай через setState
+              setEvents(events.map((event,indexTwo)=>{
+                event.isActive = index === indexTwo? true : false; 
+                return event;
+              }))
+            }}
           />      
         )}
       </div>
+      <h2>Выберете количество билетов и их тип</h2>
+      <ControlPanel/>
     </div>
   );
 }

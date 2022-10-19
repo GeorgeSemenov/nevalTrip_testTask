@@ -3,10 +3,11 @@
   max-width: 250px;
   height: 368px;
   cursor: pointer;
+  border:  10px solid transparent;
 }
 
 .active{
-  border: 10px solid red;
+  border-color: red;
 }
 
 .EventPic{

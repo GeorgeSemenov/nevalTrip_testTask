@@ -1,0 +1,13 @@
+div.Counter{
+  span.CounterTitle<title>
+  div.CounterBtn<incrementSymbol="+">
+  input.CounterResult<defaultValue=0>
+  div.CounterBtn<decrementSymbol="-">
+}
+
+{
+  title = ""
+  defaultValue=0
+  incrementSymbol="+"
+  decrementSymbol="-"
+}

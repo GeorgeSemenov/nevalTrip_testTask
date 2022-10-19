@@ -1,13 +1,31 @@
 import React, {useState} from 'react';
 import cl from './Event.module.css'
 
-function Event({picHRef, picAlt, title, labels,...props}) {
-  
+function Event({isActive,picHRef, picAlt, title, 
+  typesOfTickets,...props}) {
+  let isClicked = false;
+  let labels = typesOfTickets.map((type,index)=>{
+    let text;
+    switch(type){
+      case 'adults':
+        text="Доступны взрослые билеты";
+        break;
+      case 'kids':
+        text = "Доступны детские билеты";
+        break;
+      case 'groups':
+        text="Доступны групповые билеты";
+        break;
+      case 'benefits':
+        text="Доступны льготные билеты";
+        break;
+    } 
+    return{id:index, text: text}
+  })
   return(
     <figure
       {...props}
-      className = {cl.Event}
-      onClick = {(e)=>(console.log(e.target.className))}
+      className = {cl.Event + " " + (isActive? cl.active : "")}
     >
       <img 
         src={picHRef}
