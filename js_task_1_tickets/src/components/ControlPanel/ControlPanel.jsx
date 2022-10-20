@@ -35,7 +35,7 @@ function ControlPanel({activeEvent, setBD,BD,...props}) {
           key = {activeEvent.id + "." + index}
           title={counter.title}
           className = {cl.Counter}
-          typeOfTickets= {counter.type}
+          counterType= {counter.type}
           price = {counter.price}
           setBD = {setBD}
           BD = {BD}

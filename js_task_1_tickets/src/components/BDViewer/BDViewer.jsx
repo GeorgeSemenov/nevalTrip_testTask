@@ -10,20 +10,21 @@ function BDViewer({BD,...props}) {
       <thead>
         <tr>
           {
-            // Object.keys(BD[0]).map(key=>
-            //   <th>{key}</th>
-            // )
+            Object.keys(BD[0]).map(key=>
+              <th>{key}</th>
+            )
           }
         </tr>
       </thead>
       <tbody>
         {
           BD.map(row=>
-          //   <tr>
-          //     {row}
-              
-          //   </tr>
-          // )
+            <tr>
+              {Object.values(row).map(value=>
+                <td>{value}</td>
+              )}
+            </tr>
+          )
         }
       </tbody>
     </table>

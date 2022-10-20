@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
+import ticketTypesArray from '../../data/typesOfTickets.js'
 
-function Counter({title,typeOfTickets, price, activeEvent,
+function Counter({title,counterType, price, activeEvent,
   defaultValue=0, incrementSymbol="+",  decrementSymbol="-", 
-  setBD=(()=>{}),BD, ...props}) {
+  setBD,BD, ...props}) {
 
   const [value,setValue] = useState(defaultValue)
   
@@ -19,19 +20,8 @@ function Counter({title,typeOfTickets, price, activeEvent,
           type="button"
           onClick = {()=>{
             setValue(value+1);
-            let row = {
-              id: BD.length + 1,
-              event_id : activeEvent.id,
-              event_date : activeEvent.eventDate,
-              ticket_adult_price : activeEvent.
-                typesOfTickets.find(type=>type.name=='adults').price,
-              ticket_adult_quantity: 1,
-              barcode: 11111111,
-              user_id: '0451',
-              equal_price : 700,
-              created: Date.now()
-            }
-            setBD([row]);
+            BD.push(getBDRow(BD,activeEvent,value,counterType));
+            setBD([...BD]);
           }}
         >
           {incrementSymbol}
@@ -62,3 +52,34 @@ function Counter({title,typeOfTickets, price, activeEvent,
 }
 
 export default Counter;
+
+function getBDRow(BD,activeEvent,value,counterType){
+  // Возвращяет строку(String) для BD
+  function returnStringWithZero(num){
+    return `${num <10?"0":""}${num}`
+  }
+  function getTicketPrice(ticketType='adults'){
+    let price = activeEvent.typesOfTickets.find(type=>type.name==ticketType).price;
+    price = price? price: `-`;
+    return price;
+  }
+  let dn = new Date(Date.now());
+  let year = dn.getFullYear()
+  let month = returnStringWithZero(dn.getMonth() + 1);
+  let day = returnStringWithZero(dn.getDate());
+  let hour = returnStringWithZero(dn.getHours());
+  let minute = returnStringWithZero(dn.getMinutes());
+  let second = returnStringWithZero(dn.getSeconds());
+  
+  return {
+    id: BD.length,
+    event_id : activeEvent.id,
+    event_date : activeEvent.eventDate,
+    ticket_adult_price : getTicketPrice('adults'),
+    ticket_adult_quantity: 1,
+    barcode: 11111111 + BD.length,
+    user_id: '0451',
+    equal_price : getTicketPrice(counterType),
+    created: `${year}-${month}-${day} ${hour}:${minute}:${second}`
+  }
+}w
