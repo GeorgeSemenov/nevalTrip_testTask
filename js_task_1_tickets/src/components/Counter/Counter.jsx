@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-function Counter({title,typeOfTickets, defaultValue=0, 
-  incrementSymbol="+",  decrementSymbol="-",
-  setBDRow=(()=>{}), ...props}) {
+function Counter({title,typeOfTickets, price, activeEvent,
+  defaultValue=0, incrementSymbol="+",  decrementSymbol="-", 
+  setBD=(()=>{}),BD, ...props}) {
 
   const [value,setValue] = useState(defaultValue)
   
@@ -19,7 +19,19 @@ function Counter({title,typeOfTickets, defaultValue=0,
           type="button"
           onClick = {()=>{
             setValue(value+1);
-            setBDRow();
+            let row = {
+              id: BD.length + 1,
+              event_id : activeEvent.id,
+              event_date : activeEvent.eventDate,
+              ticket_adult_price : activeEvent.
+                typesOfTickets.find(type=>type.name=='adults').price,
+              ticket_adult_quantity: 1,
+              barcode: 11111111,
+              user_id: '0451',
+              equal_price : 700,
+              created: Date.now()
+            }
+            setBD([row]);
           }}
         >
           {incrementSymbol}
@@ -31,19 +43,20 @@ function Counter({title,typeOfTickets, defaultValue=0,
           onChange = {(e)=>{
             setValue(isFinite(e.target.value) && 
             e.target.value >= 0? e.target.value : 0)
-            setBDRow();
+            setBD();
           }}
         />
         <button 
           type="button"
           onClick = {()=>{
             setValue(value==0? 0: value-1);
-            setBDRow()
+            setBD()
           }}
         >
           {decrementSymbol}
         </button>
       </div>
+      <span>{price} ₽</span>
     </div>
   )
 }

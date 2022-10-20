@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import Counter from '../Counter/Counter.jsx'
 import cl from './ControlPanel.module.css'
 
-function ControlPanel({activeEvent, setBD,...props}) {
-  const [BDRow,setBDRow] = useState({})
+function ControlPanel({activeEvent, setBD,BD,...props}) {
   let counters = activeEvent.typesOfTickets.map((type,index)=>{
     let title;
-    switch (type) {
+    switch (type.name) {
       case "adults":
         title = "количество взрослых билетов";
         break;
@@ -20,9 +19,9 @@ function ControlPanel({activeEvent, setBD,...props}) {
         title = "количество льготных билетов";
         break;
       default :
-        title = `${type} tickets`
+        title = `${type.name} tickets`
     }
-    return {title: title, id: index, type: type}
+    return {title: title, id: index, type: type.name, price: type.price}
   })
   return(
     <div
@@ -31,13 +30,18 @@ function ControlPanel({activeEvent, setBD,...props}) {
     >
       <h2>Выберете количество билетов и их тип</h2>
       <h3> Вы выбрали {activeEvent.title}</h3>
-      {counters.map(counter=>
+      {counters.map((counter,index)=>
         <Counter 
+          key = {activeEvent.id + "." + index}
           title={counter.title}
           className = {cl.Counter}
           typeOfTickets= {counter.type}
-          setBDRow = {setBDRow}
+          price = {counter.price}
+          setBD = {setBD}
+          BD = {BD}
+          activeEvent = {activeEvent}
         />)}
+      <h3>Стоимость всех билетов составляет</h3>
     </div>
   )
 }

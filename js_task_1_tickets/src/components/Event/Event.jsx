@@ -6,7 +6,7 @@ function Event({isActive,picHRef, picAlt, title,
   let isClicked = false;
   let labels = typesOfTickets.map((type,index)=>{
     let text;
-    switch(type){
+    switch(type.name){
       case 'adults':
         text="Доступны взрослые билеты";
         break;
@@ -20,7 +20,7 @@ function Event({isActive,picHRef, picAlt, title,
         text="Доступны льготные билеты";
         break;
       default :
-        text = `${type} tickets`;
+        text = `${type.name} tickets`;
     } 
     return{id:index, text: text}
   })

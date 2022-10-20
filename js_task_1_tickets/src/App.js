@@ -36,11 +36,16 @@ function App() {
         events.find(event=>event.isActive) &&
           <ControlPanel
             activeEvent = {events.find(event=>event.isActive)}
+            BD = {BD}
+            setBD= {setBD}
           />
       }
       {
         BD.length
-          ? <BDViewer/>
+          ? <BDViewer
+            style={{textAlign:"center", margin:"0 auto"}}
+            BD = {BD}
+          />
           : ''
       }
     </div>
