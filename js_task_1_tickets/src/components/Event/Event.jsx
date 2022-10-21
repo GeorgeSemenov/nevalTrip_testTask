@@ -1,41 +1,23 @@
 import React, {useState} from 'react';
 import cl from './Event.module.css'
 
-function Event({isActive,picHRef, picAlt, title, 
-  typesOfTickets,...props}) {
+function Event({event,...props}) {
   let isClicked = false;
-  let labels = typesOfTickets.map((type,index)=>{
-    let text;
-    switch(type.name){
-      case 'adults':
-        text="Доступны взрослые билеты";
-        break;
-      case 'kids':
-        text = "Доступны детские билеты";
-        break;
-      case 'groups':
-        text="Доступны групповые билеты";
-        break;
-      case 'benefits':
-        text="Доступны льготные билеты";
-        break;
-      default :
-        text = `${type.name} tickets`;
-    } 
-    return{id:index, text: text}
+  let labels = event.tickets.map((ticket,index)=>{
+    return{id:index, text: `${ticket.type} tickets available`}
   })
   return(
     <figure
       {...props}
-      className = {cl.Event + " " + (isActive? cl.active : "")}
+      className = {cl.Event + " " + (event.isActive? cl.active : "")}
     >
       <img 
-        src={picHRef}
-        alt="picName"
+        src= {event.picHRef}
+        alt= {event.picAlt}
         className={cl.EventPic}
       />
       <figcaption>
-        {title}
+        {event.title}
       </figcaption>
       <ul className={cl.EventListLabels} >
         {labels.map(label=>

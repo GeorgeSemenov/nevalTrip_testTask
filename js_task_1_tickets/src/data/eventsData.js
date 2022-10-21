@@ -1,3 +1,4 @@
+import tot from './typesOfTickets'
 export default [
     {
       picHRef: require("../img/scaryMovie.jpg"),  
@@ -5,9 +6,9 @@ export default [
       title: "Поход в кино",
       eventId: "003",
       eventDate: "2021-08-21 13:00:00",
-      typesOfTickets: [
-        {name: 'adult', price: 700},
-        {name: 'group', price: 1500}
+      tickets: [
+        {type: tot.adult, quantity: 0, price: 700},
+        {type: tot.group, quantity: 0, price: 1500}
       ],
       id : 1,
       isActive: false
@@ -18,10 +19,10 @@ export default [
       title: "Поход в аквапарк",
       eventId: "004",
       eventDate: "2021-09-22 12:00:00",
-      typesOfTickets: [
-        {name: 'adult', price: 800},
-        {name:'kid', price: 500},
-        {name:'benefit', price: 450},
+      tickets: [
+        {type: tot.adult, quantity: 0, price: 800},
+        {type: tot.kid, quantity: 0, price: 500},
+        {type: tot.benefit, quantity: 0, price: 450},
       ],
       id : 2,
       isActive: false
@@ -32,9 +33,9 @@ export default [
       title: "Поездка по сафари туру",
       eventId: "005",
       eventDate: "2022-09-22 11:00:00",
-      typesOfTickets: [
-        {name: 'adult', price: 1000},
-        {name: 'benefit', price: 750}
+      tickets: [
+        {type: tot.adult, quantity: 0, price: 1000},
+        {type: tot.benefit, quantity: 0, price: 750}
       ],
       id : 3,
       isActive: false
@@ -45,9 +46,9 @@ export default [
       title: "Поход в зоопарк",
       eventId: "006",
       eventDate: "2022-10-22 13:00:00",
-      typesOfTickets: [
-        {name: 'adult', price: 600},
-        {name: 'kid', price: 300}
+      tickets: [
+        {type: tot.adult, quantity: 0, price: 600},
+        {type: tot.kid, quantity: 0, price: 300}
       ],
       id : 4,
       isActive: false

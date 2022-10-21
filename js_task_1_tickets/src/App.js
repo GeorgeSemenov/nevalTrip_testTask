@@ -15,15 +15,10 @@ function App() {
       <div style={{display: "flex", flexWrap: "wrap", justifyContent:"center", marginBottom: "35px"}}>
         {events.map((event,index)=>
           <Event
-            key              = {event.id}
-            picHRef          = {event.picHRef}
-            picAlt           = {event.picAlt}
-            title            = {event.title}
-            typesOfTickets   = {event.typesOfTickets}
-            isActive         = {event.isActive}
+            event = {event}
+            key   = {event.id}
 
             onClick   = {()=>{
-              //всё переделай через setState
               setEvents(events.map((event,indexTwo)=>{
                 event.isActive = index === indexTwo? true : false; 
                 return event;

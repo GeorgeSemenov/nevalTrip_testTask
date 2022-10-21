@@ -1,6 +1,6 @@
-export default [
-  `adult`,
-  `kid`,
-  `group`,
-  `benefit`,
-];
+export default {
+  adult: `adult`,
+  kid: `kid`,
+  group: `group`,
+  benefit: `benefit`,
+};
