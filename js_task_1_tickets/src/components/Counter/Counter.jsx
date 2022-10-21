@@ -4,6 +4,10 @@ import BDRow from '../../data/BDRow_class.js'
 function Counter({ticket, activeEvent, setBD,BD,
   incrementSymbol="+",  decrementSymbol="-", ...props}) 
 {
+  function isQuantityTypeForActiveEventMoreThanZero(row){
+    return row[`ticket_${ticket.type}_quantity`] > 0
+           && row.event_id === activeEvent.id
+  }
 
   return(
     <div
@@ -20,12 +24,11 @@ function Counter({ticket, activeEvent, setBD,BD,
             let newRow = new BDRow({
               BD:BD,
               activeEvent: activeEvent,
-              value: ticket.quantity + 1,
-              ticket : ticket
             })
+            newRow.setQuantity(ticket.type,
+              newRow.getQuantity(ticket.type) + 1)
             newRow.calculateEqualPrice();
             BD.push(newRow);
-            console.log(JSON.stringify(BD[BD.length-1]));
             setBD([...BD]);
           }}
         >
@@ -35,11 +38,9 @@ function Counter({ticket, activeEvent, setBD,BD,
           style={{margin:"0 15px"}}
         >
           {
-            // !BD.length 
-            // ?  BD.length
-            // :  BD.filter(row=>{
-            //      row.tickets.find(ticket=>) 
-            //    }).length
+            BD.filter(bdRow=>
+              isQuantityTypeForActiveEventMoreThanZero(bdRow)
+              ).length
           }
         </span>
         <button 
@@ -50,7 +51,13 @@ function Counter({ticket, activeEvent, setBD,BD,
             //в противном случае ничего не делай
             // ~BD.findLastIndex(row=>row.tickets.findIndex())
             // BD.findLast(row=>)
-            setBD()
+            let lastIndex = BD.findLastIndex(bdRow=>
+              isQuantityTypeForActiveEventMoreThanZero(bdRow))
+            console.log(`lastIndex = ${lastIndex} ~ = ${~lastIndex} !~ = ${!~lastIndex}`);
+            if(~lastIndex){
+              BD.splice(lastIndex,1)
+              setBD([...BD])
+            }
           }}
         >
           {decrementSymbol}

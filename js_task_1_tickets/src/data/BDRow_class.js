@@ -2,7 +2,7 @@ import tot from './typesOfTickets.js'
 let tota = Object.keys(tot);
 class BDRow{
   constructor(ruleObj){
-    //ruleObj = {BD, activeEvent, value, ticket}
+    //ruleObj = {BD, activeEvent}
     function returnStringWithZero(num){return `${num <10?"0":""}${num}`}
     let dn = new Date(Date.now());
     let year = dn.getFullYear()
@@ -18,9 +18,13 @@ class BDRow{
     this.event_id = ruleObj.activeEvent.id;
     this.event_date = ruleObj.activeEvent.eventDate;
 
-    tota.forEach(ticket=>{
-      this[`ticket_${tot[ticket]}_price`] = 0;
-      this[`ticket_${tot[ticket]}_quantity`] = 0;
+    tota.forEach(tiType=>{
+      let aetity = ruleObj.activeEvent.tickets
+        .find(tic=>tic.type==tiType);
+
+      this[`ticket_${tot[tiType]}_price`] = 
+        aetity? aetity.price : 0;
+      this[`ticket_${tot[tiType]}_quantity`] = 0;
     })
 
     this.barcode= 11111111 + ruleObj.BD.length;
@@ -32,13 +36,17 @@ class BDRow{
   calculateEqualPrice(){
     //prevval - неверно, оно высчитывается из предыдущих значений
     //в массив подставлять его нельзя
-    this.equal_price= tota.slice(1).reduce((prevVal, nextVal)=>{
-      console.log(`prevVal = ${prevVal} --- nextVal = ${nextVal}`);
-      return this[`ticket_${tot[prevVal]}_price`]
-        * this[`ticket_${tot[prevVal]}_quantity`] 
+    this.equal_price = tota.reduce((prevVal, nextVal)=>{
+      return prevVal 
         + this[`ticket_${tot[nextVal]}_price`] 
         * this[`ticket_${tot[nextVal]}_quantity`]
-    },tota[0])
+    },0)
+  }
+  setQuantity(ticketType,quantity){
+    this[`ticket_${ticketType}_quantity`] = quantity;
+  }
+  getQuantity(ticketType){
+    return this[`ticket_${ticketType}_quantity`];
   }
 }
 

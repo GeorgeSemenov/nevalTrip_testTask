@@ -5,6 +5,7 @@ function BDViewer({BD,...props}) {
   
   return(
     <table
+      className = {cl.BDViewer}
       {...props}
     >
       <thead>
