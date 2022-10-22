@@ -1,12 +1,18 @@
 import React, {useState} from 'react';
 import BDRow from '../../data/BDRow_class.js'
 
-function Counter({ticket, activeEvent, setBD,BD,
+function Counter({ticket, activeEvent, setBD,BD, isBarcodeUnique,
   incrementSymbol="+",  decrementSymbol="-", ...props}) 
 {
   function isQuantityTypeForActiveEventMoreThanZero(row){
     return row[`ticket_${ticket.type}_quantity`] > 0
            && row.event_id === activeEvent.id
+  }
+  function getNewRow(){
+    return new BDRow({
+              BD:BD,
+              activeEvent: activeEvent,
+            })
   }
 
   return(
@@ -21,14 +27,20 @@ function Counter({ticket, activeEvent, setBD,BD,
         <button 
           type="button"
           onClick = {()=>{
-            let newRow = new BDRow({
-              BD:BD,
-              activeEvent: activeEvent,
-            })
+            let newRow;
+            let lastIndex = -1;
+            if(isBarcodeUnique){newRow = getNewRow();}
+            else{
+              lastIndex = BD.findLastIndex(bdRow=>
+                bdRow.event_id === activeEvent.id)
+              if(!~lastIndex){newRow = getNewRow();}//Если строки не существует, то её нужно создать
+              else{newRow = BD[lastIndex]}
+            }
             newRow.setQuantity(ticket.type,
               newRow.getQuantity(ticket.type) + 1)
             newRow.calculateEqualPrice();
-            BD.push(newRow);
+            if(~lastIndex){BD[lastIndex]=newRow}
+            else{BD.push(newRow)};
             setBD([...BD]);
           }}
         >
@@ -40,20 +52,14 @@ function Counter({ticket, activeEvent, setBD,BD,
           {
             BD.filter(bdRow=>
               isQuantityTypeForActiveEventMoreThanZero(bdRow)
-              ).length
+            ).length
           }
         </span>
         <button 
           type="button"
           onClick = {()=>{
-            //проверь, чтобы объекты с таким типом существовали
-            //т.е. их quantity >0, тогда найти index строки и удалить её
-            //в противном случае ничего не делай
-            // ~BD.findLastIndex(row=>row.tickets.findIndex())
-            // BD.findLast(row=>)
             let lastIndex = BD.findLastIndex(bdRow=>
               isQuantityTypeForActiveEventMoreThanZero(bdRow))
-            console.log(`lastIndex = ${lastIndex} ~ = ${~lastIndex} !~ = ${!~lastIndex}`);
             if(~lastIndex){
               BD.splice(lastIndex,1)
               setBD([...BD])
@@ -69,35 +75,3 @@ function Counter({ticket, activeEvent, setBD,BD,
 }
 
 export default Counter;
-
-// function getBDRow(ruleObj){
-//   // Возвращяет строку(String) для BD
-//   //ruleObj = {BD, activeEvent, value, ticket}
-//   function returnStringWithZero(num){
-//     return `${num <10?"0":""}${num}`
-//   }
-  
-//   let dn = new Date(Date.now());
-//   let year = dn.getFullYear()
-//   let month = returnStringWithZero(dn.getMonth() + 1);
-//   let day = returnStringWithZero(dn.getDate());
-//   let hour = returnStringWithZero(dn.getHours());
-//   let minute = returnStringWithZero(dn.getMinutes());
-//   let second = returnStringWithZero(dn.getSeconds());
-//   let id = ruleObj.BD.length
-//     ?  ruleObj.BD[ruleObj.BD.length - 1].id + 1
-//     :  1;
-//   let row = {
-//     id: id,
-//     event_id : ruleObj.activeEvent.id,
-//     event_date : ruleObj.activeEvent.eventDate,
-
-//     barcode: 11111111 + ruleObj.BD.length,
-//     user_id: '0451',
-//     equal_price : ruleObj.ticket.price,
-//     created: `${year}-${month}-${day} ${hour}:${minute}:${second}`
-//   }
-//   row['ticket_'+ ruleObj.ticket.type + '_price'] = ruleObj.ticket.price;
-//   row[`ticket_${ruleObj.ticket.type}_quantity`] = ruleObj.value;
-//   return row
-// }
