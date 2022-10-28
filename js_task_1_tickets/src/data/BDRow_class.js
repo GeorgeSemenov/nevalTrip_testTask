@@ -42,11 +42,16 @@ class BDRow{
         * this[`ticket_${tot[nextVal]}_quantity`]
     },0)
   }
-  setQuantity(ticketType,quantity){
+  setQuantity(ticketType,quantity){//устанавливает для определённого типа билетов нужное количество(quantity)
     this[`ticket_${ticketType}_quantity`] = quantity;
   }
-  getQuantity(ticketType){
+  getQuantity(ticketType){//возвращает количество билетов определённого типа
     return this[`ticket_${ticketType}_quantity`];
+  }
+  getQuantityAllTickets(){//Возвращает количество всех купленных билетов
+    let sum = 0;
+    tota.forEach(tt=>{sum+=this[`ticket_${tt}_quantity`]})
+    return sum;
   }
 }
 

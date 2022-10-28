@@ -31,7 +31,7 @@ function ControlPanel({activeEvent, setBD,BD,...props}) {
           onChange = {(e)=>setIsBarcodeUnique(e.target.checked)}
         /> 
         <label
-          for="isBarcodeUnique"
+          htmlFor="isBarcodeUnique"
           style={{fontSize:"30px"}}
         >Barcode уникален для каждого билета</label>
       </div>
