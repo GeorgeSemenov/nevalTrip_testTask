@@ -1,0 +1,9 @@
+mixin card__advantages(modifier)
+  if modifier["advantages"] == undefined
+    - modifier["advantages"] = [{}];
+  ul.card__advantages&attributes(attributes)
+    each advantage in modifier.advantages
+      if advantage["modificator"] == undefined
+        - advantage["modificator"] = "";
+      +card__advantage(advantage)(class=advantage.modificator)
+    

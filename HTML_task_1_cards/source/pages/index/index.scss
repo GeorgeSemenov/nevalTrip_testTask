@@ -1,7 +1,9 @@
 /* Блоки */
 @import "../../styles/allBlocksStyles";
 body{
-  font-family: 'SF Pro Display' ,Arial , Sans-serif;
+  font-family: 'Open Sans' ,Arial , Sans-serif;
   position: relative;
   background-color: $page--BGColor;
+  font-weight: 400;
+  line-height: 20px;
 }

@@ -1,0 +1,6 @@
+mixin card__pic-caption(modifier)
+  if modifier["picCaption"] == undefined
+    - modifier["picCaption"] = "empty__picCaption";
+  if modifier["picCaptionModificators"] == undefined
+    - modifier["picCaptionModificators"] = "";
+  figcaption.card__pic-caption(class=modifier.picCaptionModificators)&attributes(attributes)!=modifier.picCaption

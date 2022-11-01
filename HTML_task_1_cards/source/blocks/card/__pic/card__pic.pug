@@ -1,0 +1,6 @@
+mixin card__pic(modifier)
+  if modifier["pic"] == undefined
+    - modifier["pic"] = require('../../img/bridge.jpg');
+  if modifier["picAlt"] == undefined
+    - modifier["picAlt"] = "empty__picAlt";
+  img.card__pic(src=modifier.pic alt=modifier.picAlt)&attributes(attributes)

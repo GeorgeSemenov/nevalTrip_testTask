@@ -1,0 +1,14 @@
+.main-screen {
+  padding-top: 67px;
+
+  @media (max-width: $md - 1px) {
+    padding: 26px 18px 26px 16px;
+  }
+  &>ul{
+    max-width: 1070px;
+    margin: 0 auto;
+  }
+}
+
+@import '__card-item/main-screen__card-item';
+@import '__card/main-screen__card';

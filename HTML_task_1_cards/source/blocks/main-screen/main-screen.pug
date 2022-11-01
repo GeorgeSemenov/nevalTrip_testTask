@@ -1,0 +1,13 @@
+include __card-item/main-screen__card-item.pug
+include ../card/card.pug
+mixin main-screen(modifier)
+  if modifier == undefined
+    - modifier = {};
+  if modifier["cards"] == undefined
+    - modifier["cards"] = [{}];
+  section.main-screen&attributes(attributes)
+    ul
+      each cardItem in modifier.cards
+        if cardItem["modificator"] == undefined
+          - cardItem["modificator"] = "";
+        +main-screen__card-item(cardItem)(class=cardItem.modificator)

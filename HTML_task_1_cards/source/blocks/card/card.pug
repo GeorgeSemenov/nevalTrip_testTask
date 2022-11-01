@@ -1,0 +1,21 @@
+include __advantage-text/card__advantage-text.pug
+include __alt-price/card__alt-price.pug
+include ../button/button.pug
+include __price/card__price.pug
+include __prices-container/card__prices-container.pug
+include __advantage/card__advantage.pug
+include __departure-time/card__departure-time.pug
+include __advantages/card__advantages.pug
+include __bottom/card__bottom.pug
+include __duration/card__duration.pug
+include __title/card__title.pug
+include __text-container/card__text-container.pug
+include __pic-caption/card__pic-caption.pug
+include __pic/card__pic.pug
+include __pic-container/card__pic-container.pug
+mixin card(modifier)
+  if modifier == undefined
+    - modifier = {};
+  .card&attributes(attributes)
+    +card__pic-container(modifier)
+    +card__text-container(modifier)

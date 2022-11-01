@@ -1,0 +1,8 @@
+.card__text-container {
+    padding: 15px 40px 15px 27px;
+    @media (max-width: $md - 1px) { 
+        display: flex;
+        flex-direction: column;
+        padding: 10px 11px 18px 11px;
+    }
+}

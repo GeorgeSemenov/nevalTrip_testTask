@@ -1,0 +1,5 @@
+mixin card__prices-container(modifier)
+  .card__prices-container&attributes(attributes)
+    +card__price(modifier)
+    if(modifier.altPrice)
+      +card__alt-price(modifier)

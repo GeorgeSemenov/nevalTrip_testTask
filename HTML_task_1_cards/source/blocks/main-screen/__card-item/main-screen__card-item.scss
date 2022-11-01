@@ -1,0 +1,6 @@
+.main-screen__card-item {
+    margin-bottom: 59px;
+    @media (max-width: $md - 1px) { 
+        margin-bottom: 30px
+    }
+}

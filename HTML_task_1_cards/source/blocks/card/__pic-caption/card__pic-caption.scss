@@ -1,0 +1,21 @@
+.card__pic-caption {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  padding: 12px 35px;
+  background-color: $card__pic-caption--BGColor;
+
+  @media (max-width: $md - 1px) {
+    font-size: 12px;
+    padding: 8px 19px;
+    top: 18%;
+  }
+
+  &_theme_yellow{background-color: $card__pic-caption_theme_yellow--BGColor;}
+  &_theme_purple{
+    background-color: $card__pic-caption_theme_purple--BGColor;
+    color: $card__pic-caption_theme_purple--Color;
+  }
+  &_shape_leaf{border-radius: 15px 0px 12px;}
+  &_position_top{top: 0; @media (max-width: $md - 1px) {top: 0;} };
+}

@@ -1,0 +1,8 @@
+.button {
+  padding: 0;  
+  font-size: 18px;
+  color: $button--Color;
+  @media (max-width: $md - 1px) {
+    font-size: 14px;
+  }
+}

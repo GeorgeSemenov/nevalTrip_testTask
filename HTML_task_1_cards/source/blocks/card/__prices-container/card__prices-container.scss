@@ -1,0 +1,14 @@
+.card__prices-container {
+  padding-top: 5px;
+  margin-right: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  
+  @media (max-width: $md - 1px) { 
+    padding-left: 7px; 
+    padding-top: 3px;
+    align-items: center;
+  }
+}

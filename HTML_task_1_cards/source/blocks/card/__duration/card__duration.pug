@@ -1,0 +1,4 @@
+mixin card__duration(modifier)
+  if modifier["duration"] == undefined
+    - modifier["duration"] = "Неизвестно";
+  p.card__duration&attributes(attributes)!=modifier.duration

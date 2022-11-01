@@ -1,0 +1,4 @@
+mixin card__price(modifier)
+  if modifier["price"] == undefined
+    - modifier["price"] = "empty__price";
+  p.card__price&attributes(attributes)!=modifier.price

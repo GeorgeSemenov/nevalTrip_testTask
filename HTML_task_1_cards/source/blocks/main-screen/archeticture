@@ -1,0 +1,24 @@
+{
+  cards:[
+    {
+      pic: require('../../img/bridge.jpg'),
+      picAlt: "",
+      picCaption: "",
+      picCaptionModificators:"card__pic-caption_theme_yellow/purple card__pic-caption_position_top card__pic-caption_shape_leaf",
+      title:"",
+      titleTag:"h3",
+      duration: "2 часа",
+      advantages:[
+        {
+          text:"",
+          modifier:"",
+          moreButtonText: "Ещё",
+          departureTimes:[{text:"",modifier:""}],
+        },
+      ],
+      price:" ₽",
+      altPrice: " ₽",
+      buttonText: " ";
+    },
+  ]
+}

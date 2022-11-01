@@ -1,0 +1,7 @@
+.card__advantage-text {
+    padding: 0;
+    @media (max-width: $md - 1px) { 
+        display: block;
+        width: 100%;
+    }
+}

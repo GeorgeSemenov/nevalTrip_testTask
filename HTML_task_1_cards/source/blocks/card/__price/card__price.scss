@@ -1,0 +1,7 @@
+.card__price {
+  font-size: 36px;
+  @media (max-width: $md - 1px) {
+    font-size: 30px;
+    margin-left: -13px;
+  }
+}

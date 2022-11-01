@@ -1,0 +1,25 @@
+.card {
+  display: flex;
+  padding: 0;  
+  border: 0.5px solid $card--BorderColor;
+  border-radius: 15px;
+  @media (max-width: $md - 1px) {
+    flex-direction:column;
+  }
+}
+@import '__pic-container/card__pic-container';
+@import '__pic/card__pic';
+@import '__pic-caption/card__pic-caption';
+@import '__text-container/card__text-container';
+@import '__title/card__title';
+@import '__duration/card__duration';
+@import '__bottom/card__bottom';
+@import '__advantages/card__advantages';
+@import '__departure-time/card__departure-time';
+@import '__advantage/card__advantage';
+@import '../button/button';
+@import '__button/card__button';
+@import '__prices-container/card__prices-container';
+@import '__price/card__price';
+@import '__alt-price/card__alt-price';
+@import '__advantage-text/card__advantage-text';

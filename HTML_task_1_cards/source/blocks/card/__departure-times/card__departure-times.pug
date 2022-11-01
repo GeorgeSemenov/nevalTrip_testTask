@@ -1,0 +1,6 @@
+mixin card__departure-times(modifier)
+  ul.card__departure-times&attributes(attributes)
+    each dep in modifier.departureTimes
+      if dep["modificator"] == undefined
+        - dep["modificator"] = "";
+      +card__departure-time(dep)(class=dep.modificator)

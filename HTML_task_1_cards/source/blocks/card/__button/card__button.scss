@@ -1,0 +1,26 @@
+.button.card__button {
+  background-color: $card__button--BGColor;
+  border-radius: 23px;
+  padding: 16px 45px;
+  font-size: 16px;
+  &:hover{background-color: darken($card__button--BGColor,15%);}
+  &:active{background-color: darken($card__button--BGColor,30%);}
+
+  @media (max-width: $md - 1px) {
+    padding: 12px 45px;
+  }
+}
+.card__button.card__button_theme_more{
+  padding: 4px 14px;
+  background-color: $card__button_theme_more--BGColor;
+  color: $card__button_theme_more--Color;
+  &:hover{background-color: darken($card__button_theme_more--BGColor,15%);}
+  &:active{background-color: darken($card__button_theme_more--BGColor,30%);}
+  @media (max-width: $md - 1px) { 
+    margin-top: 8px;  
+    // padding: 0;
+  }
+}
+.card__button.card__button_invisible{
+  display: none;
+}

@@ -1,0 +1,13 @@
+mixin card__advantage(modifier)
+  if modifier["departureTimes"] == undefined
+    - modifier["departureTimes"] = [];
+  if modifier["moreButtonText"] == undefined
+    - modifier["moreButtonText"] = "ещё...";
+  li.card__advantage&attributes(attributes)
+    +card__advantage-text(modifier)
+    if(modifier.departureTimes.length)
+      each dep in modifier.departureTimes
+        if dep["modificator"] == undefined
+          - dep["modificator"] = "";
+        +card__departure-time(dep)(class=dep.modificator)
+      +button({buttonText: modifier.moreButtonText})(class="card__button card__button_theme_more")

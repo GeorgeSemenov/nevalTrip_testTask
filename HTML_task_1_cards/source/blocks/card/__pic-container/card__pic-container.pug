@@ -1,0 +1,5 @@
+mixin card__pic-container(modifier)
+  figure.card__pic-container&attributes(attributes)
+    +card__pic(modifier)
+    if(modifier.picCaption)
+      +card__pic-caption(modifier)
