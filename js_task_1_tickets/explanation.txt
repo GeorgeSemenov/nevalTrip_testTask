@@ -1,3 +1,4 @@
+Ссылка на рабочий проект : https://delicate-halva-d9a1d3.netlify.app/
 Ссылка для скачивания проекта: https://github.com/GeorgeSemenov/nevalTrip_testTask
 
 Чтобы развернуть проект войдите в папку js_task_1_tickets
